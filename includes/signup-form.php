@@ -22,7 +22,8 @@
 				if($getFromU->checkEmail($email) === true){
 					$error = 'Email is already in use';
 				}else{
-
+					$getFromU->register($email, $screenName, $password);
+					header('Location: home.php');
 				}
 			}
 		}
