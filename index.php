@@ -58,13 +58,13 @@
 			<!-- Log In Section -->
 			<div class="login-wrapper">
 			  <!--Login Form here-->
-			 
+			  <?php include 'includes/login.php' ;?>
 			</div><!-- log in wrapper end -->
 
 			<!-- SignUp Section -->
 			<div class="signup-wrapper">
 			   <!--SignUp Form here -->
-			   
+			   <?php include 'includes/signup-form.php' ;?>
 			</div>
 			<!-- SIGN UP wrapper end -->
 
