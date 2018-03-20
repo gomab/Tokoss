@@ -2,8 +2,13 @@
 	include 'core/init.php';
 
 	$user_id = $_SESSION['user_id'];
-	$user = $getFromU->userData($user_id);
-	
+	$user = $getFromU->userData($user_id);   
+	/**$getFromU->create('users', [
+		'username' => 'gomab',
+		'email'    => 'gomab@gomab.com',
+		'password' => md5('password')
+	]);
+	**/
 ?>
 
 <!DOCTYPE HTML> 

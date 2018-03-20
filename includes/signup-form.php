@@ -22,8 +22,14 @@
 				if($getFromU->checkEmail($email) === true){
 					$error = 'Email is already in use';
 				}else{
-					$getFromU->register($email, $screenName, $password);
-					header('Location: home.php');
+					$getFromU->create('users', [
+						'email'        => $email,
+						'password'     => md5($password),
+						'screenName'   => $screenName,
+						'profileImage' => 'assets/images/defaultProfileImage.png',
+						'profilCover' => 'assets/images/defaultCoverImage.png'
+					]);
+					header('Location: includes/signup.php?step=1');
 				}
 			}
 		}

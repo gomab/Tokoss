@@ -58,6 +58,21 @@
 			header('Location: ../index.php');
 		}
 
+		public function create($table, $fields = []){
+			$columns = implode(',', array_keys($fields));
+			$values = ':'.implode(', :', array_keys($fields));
+			$sql = "INSERT INTO {$table} ({$columns}) VALUES ({$values})";  
+
+			if($stmt = $this->pdo->prepare($sql));{
+				foreach($fields as $key => $data){
+					$stmt->bindValue(':'.$key, $data);
+				}
+				$stmt->execute();
+				return $this->pdo->lastInsertId();
+			} 
+  
+		}
+		
 		public function checkEmail($email){
 			$stmt = $this->pdo->prepare("SELECT `email` FROM `users` WHERE `email` = :email");
 			$stmt->bindParam(":email",$email, PDO::PARAM_STR);
